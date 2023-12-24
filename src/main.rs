@@ -93,9 +93,34 @@ fn french_cents_value(piece: UsPieces)->u64{
     }
 }
 
-fn launch_app_with_match() -> u64 {
+pub fn launch_app_with_match() -> u64 {
     french_cents_value(Penny);
     french_cents_value(Quarter(UsState::NewYork))
 }
 
+pub fn plus_one(x:Option<i64>)->Option<i64>{
 
+    match x {
+        None=>None,
+        Some(i)=>Some(i+1)
+    }
+
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+
+}
+
+
+pub fn throw_of_the_dices(){
+    let jete_de_de = 9;
+    match jete_de_de {
+        3 => add_hat(),
+        7 => remove_hat(),
+        other => move_player(other),
+    }
+
+    fn add_hat() {}
+    fn remove_hat() {}
+    fn move_player(nombre_cases: u8) {}
+}
