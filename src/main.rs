@@ -124,3 +124,10 @@ pub fn throw_of_the_dices(){
     fn remove_hat() {}
     fn throw_again() {}
 }
+
+pub fn learning_if_let(){
+    let value_of_u8 = Some(3u8);
+    if let Some(max) = value_of_u8{
+        println!("Le maximum est réglé sur {}",max)
+    }
+}
