@@ -1,7 +1,7 @@
-use std::ptr::null;
+use crate::UsPieces::{Penny, Quarter};
 
-fn main() {
-    println!("Hello, world!");
+fn main(){
+    let info = launch_app_with_match();
 }
 
 
@@ -63,20 +63,39 @@ pub fn router(ip_type: IpAddressTypes){
 
 //start the enum and match part
 
+#[derive(Debug)]
+enum UsState{
+    Alaska,
+    Alabama,
+    NewYork,
+}
+
+
 enum UsPieces{
     Penny,
     Nickel,
     Dime,
-    Quarter,
+    Quarter(UsState),
 }
 
 fn french_cents_value(piece: UsPieces)->u64{
     match piece {
-        UsPieces::Penny =>1,
+        UsPieces::Penny =>{
+            println!("Un centime porte bonheur");
+            1
+        },
         UsPieces::Nickel=>5,
         UsPieces::Dime=>10,
-        UsPieces::Quarter =>25
+        UsPieces::Quarter(state) =>{
+            println!("Ce quarter vient de l'etat de {:?}",state);
+            25
+        }
     }
+}
+
+fn launch_app_with_match() -> u64 {
+    french_cents_value(Penny);
+    french_cents_value(Quarter(UsState::NewYork))
 }
 
 
