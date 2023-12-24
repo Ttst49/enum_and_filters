@@ -117,10 +117,10 @@ pub fn throw_of_the_dices(){
     match jete_de_de {
         3 => add_hat(),
         7 => remove_hat(),
-        other => move_player(other),
+        _ => throw_again(),
     }
 
     fn add_hat() {}
     fn remove_hat() {}
-    fn move_player(nombre_cases: u8) {}
+    fn throw_again() {}
 }
