@@ -60,3 +60,23 @@ pub fn launch_app(){
 pub fn router(ip_type: IpAddressTypes){
     //do nothing
 }
+
+//start the enum and match part
+
+enum UsPieces{
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+fn french_cents_value(piece: UsPieces)->u64{
+    match piece {
+        UsPieces::Penny =>1,
+        UsPieces::Nickel=>5,
+        UsPieces::Dime=>10,
+        UsPieces::Quarter =>25
+    }
+}
+
+
